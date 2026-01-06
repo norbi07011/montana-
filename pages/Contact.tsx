@@ -96,31 +96,31 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-montana-black py-20 px-4">
+    <div className="min-h-screen bg-slate-50 dark:bg-montana-black py-16 md:py-20 px-4">
       <motion.div
         initial="hidden"
         animate="visible"
         variants={containerVariants}
-        className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-16"
+        className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16"
       >
         
         {/* Info Side */}
         <motion.div variants={itemVariants}>
-          <h1 className="font-serif text-4xl md:text-5xl font-bold text-white mb-8 uppercase tracking-widest text-shadow-gold">
+          <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white mb-4 md:mb-8 uppercase tracking-widest text-shadow-gold">
             {t.contactPage.title}
           </h1>
-          <p className="text-slate-400 mb-12 text-lg leading-relaxed">
+          <p className="text-slate-400 mb-8 md:mb-12 text-sm md:text-lg leading-relaxed">
              Heeft u een noodgeval? Bel direct. Voor offertes, vul het formulier in. Wij reageren binnen 24 uur.
           </p>
           
-          <div className="space-y-6">
-             <GlassCard className="p-6" hover={false}>
-               <motion.div variants={itemVariants} className="flex items-start gap-4 group">
-                  <div className="w-12 h-12 bg-montana-dark border border-white/10 flex items-center justify-center text-montana-gold group-hover:border-montana-gold group-hover:scale-110 transition-all">
-                     <Phone size={24} />
+          <div className="space-y-4 md:space-y-6">
+             <GlassCard className="p-4 md:p-6" hover={false}>
+               <motion.div variants={itemVariants} className="flex items-start gap-3 md:gap-4 group">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-montana-dark border border-white/10 flex items-center justify-center text-montana-gold group-hover:border-montana-gold group-hover:scale-110 transition-all shrink-0">
+                     <Phone size={20} />
                   </div>
                   <div>
-                     <h3 className="text-white font-bold uppercase tracking-wider text-sm mb-1">Telefonisch</h3>
+                     <h3 className="text-white font-bold uppercase tracking-wider text-xs md:text-sm mb-1">Telefonisch</h3>
                      <a href="tel:+31647026240" className="text-slate-400 hover:text-montana-gold transition-colors">
                        +31 6 47 02 62 40
                      </a>
@@ -129,13 +129,13 @@ export const Contact: React.FC = () => {
                </motion.div>
              </GlassCard>
              
-             <GlassCard className="p-6" hover={false}>
-               <motion.div variants={itemVariants} className="flex items-start gap-4 group">
-                  <div className="w-12 h-12 bg-montana-dark border border-white/10 flex items-center justify-center text-montana-gold group-hover:border-montana-gold group-hover:scale-110 transition-all">
-                     <Mail size={24} />
+             <GlassCard className="p-4 md:p-6" hover={false}>
+               <motion.div variants={itemVariants} className="flex items-start gap-3 md:gap-4 group">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-montana-dark border border-white/10 flex items-center justify-center text-montana-gold group-hover:border-montana-gold group-hover:scale-110 transition-all shrink-0">
+                     <Mail size={20} />
                   </div>
                   <div>
-                     <h3 className="text-white font-bold uppercase tracking-wider text-sm mb-1">Email</h3>
+                     <h3 className="text-white font-bold uppercase tracking-wider text-xs md:text-sm mb-1">Email</h3>
                      <a href="mailto:info@montanast.nl" className="text-slate-400 hover:text-montana-gold transition-colors">
                        info@montanast.nl
                      </a>
@@ -143,25 +143,25 @@ export const Contact: React.FC = () => {
                </motion.div>
              </GlassCard>
 
-             <GlassCard className="p-6" hover={false}>
-               <motion.div variants={itemVariants} className="flex items-start gap-4 group">
-                  <div className="w-12 h-12 bg-montana-dark border border-white/10 flex items-center justify-center text-montana-gold group-hover:border-montana-gold group-hover:scale-110 transition-all">
-                     <MapPin size={24} />
+             <GlassCard className="p-4 md:p-6" hover={false}>
+               <motion.div variants={itemVariants} className="flex items-start gap-3 md:gap-4 group">
+                  <div className="w-10 h-10 md:w-12 md:h-12 bg-montana-dark border border-white/10 flex items-center justify-center text-montana-gold group-hover:border-montana-gold group-hover:scale-110 transition-all shrink-0">
+                     <MapPin size={20} />
                   </div>
                   <div>
-                     <h3 className="text-white font-bold uppercase tracking-wider text-sm mb-1">Regio</h3>
+                     <h3 className="text-white font-bold uppercase tracking-wider text-xs md:text-sm mb-1">Regio</h3>
                      <p className="text-slate-400">Zuid-Holland, Nederland</p>
                   </div>
                </motion.div>
              </GlassCard>
 
              {/* Google Maps */}
-             <motion.div variants={itemVariants} className="mt-8 rounded overflow-hidden border border-montana-gold/20">
+             <motion.div variants={itemVariants} className="mt-6 md:mt-8 rounded overflow-hidden border border-montana-gold/20">
                <iframe
                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d156361.18181531895!2d4.324999999999999!3d51.9244201!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47c5b7605f54c47d%3A0x5c3a8b8b8b8b8b8b!2sRotterdam!5e0!3m2!1snl!2snl!4v1234567890"
                  width="100%"
-                 height="250"
-                 className="border-0"
+                 height="200"
+                 className="border-0 md:h-[250px]"
                  allowFullScreen
                  loading="lazy"
                  referrerPolicy="no-referrer-when-downgrade"
@@ -172,11 +172,11 @@ export const Contact: React.FC = () => {
         </motion.div>
 
         {/* Form Side */}
-        <motion.div variants={itemVariants} className="glass-panel p-8 border border-montana-gold/10 relative">
+        <motion.div variants={itemVariants} className="glass-panel p-4 sm:p-6 md:p-8 border border-montana-gold/10 relative">
           <div className="absolute top-0 right-0 w-20 h-20 bg-gradient-to-bl from-montana-gold/10 to-transparent pointer-events-none"></div>
           
-          <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
-             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4 md:space-y-6">
+             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
                 <div className="space-y-2">
                    <label className="text-xs uppercase tracking-widest text-slate-500 flex items-center gap-1">
                      {t.contactPage.formName} <span className="text-red-500">*</span>

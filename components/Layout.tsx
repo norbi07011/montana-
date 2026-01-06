@@ -37,23 +37,23 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
 
       {/* Header */}
       <header className="fixed top-0 w-full z-50 transition-all duration-300 glass-panel border-b border-slate-200 dark:border-white/5">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-20">
+        <div className="max-w-7xl mx-auto px-3 sm:px-4 md:px-6 lg:px-8">
+          <div className="flex justify-between items-center h-16 md:h-20">
             
             {/* Logo */}
             <Link to="/" className="flex items-center group" onClick={closeMenu}>
-              <div className="relative flex items-center gap-3">
+              <div className="relative flex items-center gap-2 md:gap-3">
                 <img 
                   src="/LOGO.jpg" 
                   alt="Montana ST Logo" 
-                  className="w-12 h-12 object-contain transition-all duration-500"
+                  className="w-10 h-10 md:w-12 md:h-12 object-contain transition-all duration-500"
                   style={{ 
                     filter: 'brightness(1.3) contrast(1.6)',
                     mixBlendMode: 'screen'
                   }}
                 />
                 <div>
-                  <h1 className="font-serif text-2xl md:text-3xl font-bold tracking-wider text-slate-900 dark:text-white group-hover:text-montana-gold transition-colors duration-500">
+                  <h1 className="font-serif text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold tracking-wider text-slate-900 dark:text-white group-hover:text-montana-gold transition-colors duration-500">
                     MONTANA <span className="text-montana-gold">ST</span>
                   </h1>
                   <div className="h-px w-full bg-gradient-to-r from-transparent via-montana-gold to-transparent opacity-50 mt-1"></div>
@@ -115,7 +115,10 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
             </div>
 
             {/* Mobile Menu Button */}
-            <div className="md:hidden flex items-center gap-4">
+            <div className="md:hidden flex items-center gap-3">
+               {/* Theme Toggle for Mobile */}
+               <ThemeToggle />
+               
                <div className="relative">
                 <button 
                   onClick={() => setIsLangOpen(!isLangOpen)}
@@ -192,7 +195,7 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
       </header>
 
       {/* Main Content */}
-      <main className="flex-grow pt-20 relative z-10">
+      <main className="flex-grow pt-16 md:pt-20 relative z-10">
         {children}
       </main>
 
@@ -205,50 +208,50 @@ export const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) =>
           </div>
         </div>
 
-        <div className="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="max-w-7xl mx-auto px-4 py-8 md:py-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:gap-8">
           <div>
-            <div className="flex items-center gap-3 mb-4">
+            <div className="flex items-center gap-2 md:gap-3 mb-3 md:mb-4">
               <img 
                 src="/LOGO.jpg" 
                 alt="Montana ST Logo" 
-                className="w-16 h-16 object-contain"
+                className="w-12 h-12 md:w-16 md:h-16 object-contain"
                 style={{ 
                   filter: 'brightness(1.3) contrast(1.6) drop-shadow(0 0 10px rgba(212,175,55,0.3))',
                   mixBlendMode: 'screen'
                 }}
               />
-              <h3 className="text-montana-gold font-serif text-xl">MONTANA ST</h3>
+              <h3 className="text-montana-gold font-serif text-lg md:text-xl">MONTANA ST</h3>
             </div>
-            <p className="text-slate-400 mb-4 max-w-xs">{t.aboutPage.storyText.substring(0, 100)}...</p>
+            <p className="text-slate-400 mb-3 md:mb-4 max-w-xs text-sm md:text-base">{t.aboutPage.storyText.substring(0, 100)}...</p>
             
             {/* Social Media Links */}
-            <div className="flex gap-3 mt-6">
+            <div className="flex gap-2 md:gap-3 mt-4 md:mt-6">
               <a
                 href="https://facebook.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-montana-dark border border-white/10 rounded flex items-center justify-center text-slate-400 hover:text-montana-gold hover:border-montana-gold transition-colors"
+                className="w-9 h-9 md:w-10 md:h-10 bg-montana-dark border border-white/10 rounded flex items-center justify-center text-slate-400 hover:text-montana-gold hover:border-montana-gold transition-colors"
                 aria-label="Facebook"
               >
-                <Facebook size={18} />
+                <Facebook size={16} />
               </a>
               <a
                 href="https://instagram.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-montana-dark border border-white/10 rounded flex items-center justify-center text-slate-400 hover:text-montana-gold hover:border-montana-gold transition-colors"
+                className="w-9 h-9 md:w-10 md:h-10 bg-montana-dark border border-white/10 rounded flex items-center justify-center text-slate-400 hover:text-montana-gold hover:border-montana-gold transition-colors"
                 aria-label="Instagram"
               >
-                <Instagram size={18} />
+                <Instagram size={16} />
               </a>
               <a
                 href="https://linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="w-10 h-10 bg-montana-dark border border-white/10 rounded flex items-center justify-center text-slate-400 hover:text-montana-gold hover:border-montana-gold transition-colors"
+                className="w-9 h-9 md:w-10 md:h-10 bg-montana-dark border border-white/10 rounded flex items-center justify-center text-slate-400 hover:text-montana-gold hover:border-montana-gold transition-colors"
                 aria-label="LinkedIn"
               >
-                <Linkedin size={18} />
+                <Linkedin size={16} />
               </a>
             </div>
           </div>

@@ -23,15 +23,15 @@ export const Services: React.FC = () => {
 
   // Icons matching the service list order
   const icons = [
-    <Siren size={40} className="text-red-500" />,           // 1. Emergency
-    <Waves size={40} className="text-blue-500" />,          // 2. Sewer
-    <Flame size={40} className="text-orange-500" />,        // 3. Heating
-    <Leaf size={40} className="text-green-500" />,          // 4. Heat Pump
-    <Umbrella size={40} className="text-slate-400" />,      // 5. Roofing
-    <Bath size={40} className="text-cyan-400" />,           // 6. Bathroom
-    <Wind size={40} className="text-gray-300" />,           // 7. Ventilation
-    <Wrench size={40} className="text-montana-gold" />,     // 8. Pipework
-    <Building2 size={40} className="text-amber-700" />      // 9. Construction
+    <Siren className="text-red-500" />,           // 1. Emergency
+    <Waves className="text-blue-500" />,          // 2. Sewer
+    <Flame className="text-orange-500" />,        // 3. Heating
+    <Leaf className="text-green-500" />,          // 4. Heat Pump
+    <Umbrella className="text-slate-400" />,      // 5. Roofing
+    <Bath className="text-cyan-400" />,           // 6. Bathroom
+    <Wind className="text-gray-300" />,           // 7. Ventilation
+    <Wrench className="text-montana-gold" />,     // 8. Pipework
+    <Building2 className="text-amber-700" />      // 9. Construction
   ];
 
   // Define specific questions for each service index
@@ -184,37 +184,37 @@ export const Services: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-montana-black py-20 px-4 relative">
+    <div className="min-h-screen bg-slate-50 dark:bg-montana-black py-16 md:py-20 px-4 relative">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-20">
-          <h1 className="font-serif text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-4 uppercase tracking-widest text-shadow-gold">
+        <div className="text-center mb-12 md:mb-20">
+          <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-3 md:mb-4 uppercase tracking-widest text-shadow-gold">
             {t.servicesPage.title}
           </h1>
-          <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto">{t.servicesPage.subtitle}</p>
+          <p className="text-slate-600 dark:text-slate-400 max-w-2xl mx-auto text-sm md:text-base px-2">{t.servicesPage.subtitle}</p>
         </div>
 
         {/* Grid of Services */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8">
           {t.servicesPage.items.map((service, idx) => (
-            <div key={idx} className="glass-panel p-8 flex flex-col gap-6 border border-slate-200 dark:border-white/5 hover:border-montana-gold/30 transition-all duration-300 group relative overflow-hidden">
+            <div key={idx} className="glass-panel p-4 sm:p-6 md:p-8 flex flex-col gap-4 md:gap-6 border border-slate-200 dark:border-white/5 hover:border-montana-gold/30 transition-all duration-300 group relative overflow-hidden">
               
               <div className="absolute top-0 right-0 w-24 h-24 bg-montana-gold/10 dark:bg-montana-gold/5 rounded-bl-full -mr-12 -mt-12 transition-transform group-hover:scale-150"></div>
 
               <div className="shrink-0">
-                <div className="w-16 h-16 rounded-full bg-slate-100 dark:bg-white/5 flex items-center justify-center group-hover:bg-slate-200 dark:group-hover:bg-white/10 transition-colors border border-slate-200 dark:border-white/5 group-hover:border-montana-gold/20">
-                  {icons[idx % icons.length]}
+                <div className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-slate-100 dark:bg-white/5 flex items-center justify-center group-hover:bg-slate-200 dark:group-hover:bg-white/10 transition-colors border border-slate-200 dark:border-white/5 group-hover:border-montana-gold/20">
+                  {React.cloneElement(icons[idx % icons.length], { size: 28 })}
                 </div>
               </div>
               
               <div className="flex flex-col flex-grow">
-                <h3 className="text-xl font-bold text-slate-900 dark:text-white mb-3 font-serif tracking-wide">{service.title}</h3>
-                <p className="text-slate-600 dark:text-slate-400 mb-6 text-sm leading-relaxed flex-grow">{service.desc}</p>
+                <h3 className="text-base sm:text-lg md:text-xl font-bold text-slate-900 dark:text-white mb-2 md:mb-3 font-serif tracking-wide">{service.title}</h3>
+                <p className="text-slate-600 dark:text-slate-400 mb-4 md:mb-6 text-xs md:text-sm leading-relaxed flex-grow">{service.desc}</p>
                 
-                <div className="border-t border-slate-200 dark:border-white/5 pt-4 mb-6">
-                  <ul className="space-y-2">
+                <div className="border-t border-slate-200 dark:border-white/5 pt-3 md:pt-4 mb-4 md:mb-6">
+                  <ul className="space-y-1.5 md:space-y-2">
                     {service.points.map((point, pIdx) => (
-                      <li key={pIdx} className="flex items-start gap-3 text-sm text-slate-700 dark:text-slate-300">
-                        <Check size={14} className="text-montana-gold mt-1 shrink-0" />
+                      <li key={pIdx} className="flex items-start gap-2 md:gap-3 text-xs md:text-sm text-slate-700 dark:text-slate-300">
+                        <Check size={12} className="text-montana-gold mt-0.5 shrink-0" />
                         <span>{point}</span>
                       </li>
                     ))}
@@ -223,7 +223,7 @@ export const Services: React.FC = () => {
 
                 <button 
                   onClick={() => openModal(idx)}
-                  className="w-full text-center bg-montana-gold/5 text-montana-gold px-6 py-3 text-xs font-bold uppercase tracking-widest hover:bg-montana-gold hover:text-montana-black transition-colors border border-montana-gold/20"
+                  className="w-full text-center bg-montana-gold/5 text-montana-gold px-4 md:px-6 py-2.5 md:py-3 text-[10px] md:text-xs font-bold uppercase tracking-widest hover:bg-montana-gold hover:text-montana-black transition-colors border border-montana-gold/20"
                 >
                   {t.common.requestQuote}
                 </button>
@@ -234,13 +234,13 @@ export const Services: React.FC = () => {
 
         {/* Modal Form Overlay */}
         {activeService !== null && (
-          <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
-             <div className="glass-panel w-full max-w-2xl max-h-[90vh] overflow-y-auto relative border border-montana-gold shadow-[0_0_50px_rgba(212,175,55,0.2)] custom-scrollbar">
+          <div className="fixed inset-0 z-50 flex items-end md:items-center justify-center p-0 md:p-4 bg-black/80 backdrop-blur-sm animate-fade-in">
+             <div className="glass-panel w-full md:max-w-2xl max-h-[85vh] md:max-h-[90vh] overflow-y-auto relative border border-montana-gold shadow-[0_0_50px_rgba(212,175,55,0.2)] custom-scrollbar rounded-t-2xl md:rounded-xl">
                 
                 {/* Header */}
-                <div className="sticky top-0 bg-slate-100 dark:bg-montana-dark/95 backdrop-blur p-6 border-b border-slate-200 dark:border-white/10 flex justify-between items-center z-10">
+                <div className="sticky top-0 bg-slate-100 dark:bg-montana-dark/95 backdrop-blur p-4 md:p-6 border-b border-slate-200 dark:border-white/10 flex justify-between items-center z-10">
                    <div>
-                      <h2 className="text-xl font-bold text-slate-900 dark:text-white uppercase tracking-widest font-serif">
+                      <h2 className="text-base md:text-xl font-bold text-slate-900 dark:text-white uppercase tracking-widest font-serif">
                          {t.servicesPage.items[activeService].title}
                       </h2>
                       <p className="text-xs text-montana-gold mt-1">WhatsApp Direct Service</p>

@@ -16,7 +16,6 @@ import { CursorTrail } from './components/CursorTrail';
 import { WebGLParticles } from './components/WebGLParticles';
 import { MorphingShapes } from './components/MorphingShapes';
 import { SwipeGestures } from './components/SwipeGestures';
-import { BottomNavigation } from './components/BottomNavigation';
 import { registerServiceWorker } from './utils/pwa';
 
 // Lazy load pages for better performance
@@ -76,7 +75,6 @@ const App: React.FC = () => {
                   </Layout>
                 </Suspense>
               </SwipeGestures>
-              <BottomNavigation />
               <FloatingWhatsApp />
               <CookieConsent />
               <PWAInstallPrompt />

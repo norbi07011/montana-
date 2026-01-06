@@ -22,14 +22,14 @@ export const Projects: React.FC = () => {
   const filteredProjects = filter === 'all' ? projects : projects.filter(p => p.category === filter);
 
   return (
-    <div className="min-h-screen bg-slate-50 dark:bg-montana-black py-20 px-4">
+    <div className="min-h-screen bg-slate-50 dark:bg-montana-black py-16 md:py-20 px-4">
       <div className="max-w-7xl mx-auto">
-        <h1 className="font-serif text-4xl md:text-5xl font-bold text-slate-900 dark:text-white mb-12 text-center uppercase tracking-widest text-shadow-gold">
+        <h1 className="font-serif text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-slate-900 dark:text-white mb-8 md:mb-12 text-center uppercase tracking-widest text-shadow-gold">
           {t.projectsPage.title}
         </h1>
 
         {/* Filter Controls */}
-        <div className="flex flex-wrap justify-center gap-4 mb-16">
+        <div className="flex flex-wrap justify-center gap-2 md:gap-4 mb-10 md:mb-16">
           {[
             { key: 'all', label: t.projectsPage.filterAll },
             { key: 'leak', label: t.projectsPage.filterLeak },
@@ -39,7 +39,7 @@ export const Projects: React.FC = () => {
             <button
               key={f.key}
               onClick={() => setFilter(f.key as any)}
-              className={`px-6 py-2 text-sm uppercase tracking-widest border transition-all duration-300 ${
+              className={`px-3 sm:px-4 md:px-6 py-1.5 md:py-2 text-[10px] md:text-sm uppercase tracking-widest border transition-all duration-300 ${
                 filter === f.key 
                   ? 'bg-montana-gold border-montana-gold text-montana-black font-bold shadow-[0_0_15px_rgba(212,175,55,0.4)]' 
                   : 'bg-transparent border-white/20 text-slate-400 hover:border-montana-gold hover:text-montana-gold'
@@ -51,7 +51,7 @@ export const Projects: React.FC = () => {
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-8 mb-16 md:mb-20">
           {filteredProjects.map((project, index) => {
             const ProjectCard = () => {
               const tilt = use3DTilt(10);
@@ -64,7 +64,7 @@ export const Projects: React.FC = () => {
                   {...tilt}
                 >
                   <GlassCard className="overflow-hidden">
-                    <div className="h-64 overflow-hidden relative">
+                    <div className="h-48 md:h-64 overflow-hidden relative">
                       <motion.img
                         whileHover={{ scale: 1.1 }}
                         transition={{ duration: 0.6 }}
@@ -91,13 +91,13 @@ export const Projects: React.FC = () => {
                       </div>
                     </div>
                     
-                    <div className="p-6 relative">
-                      <div className="absolute top-0 left-6 -translate-y-1/2 bg-montana-gold text-montana-black text-[10px] font-bold px-3 py-1 uppercase tracking-widest">
+                    <div className="p-4 md:p-6 relative">
+                      <div className="absolute top-0 left-4 md:left-6 -translate-y-1/2 bg-montana-gold text-montana-black text-[8px] md:text-[10px] font-bold px-2 md:px-3 py-1 uppercase tracking-widest">
                         {project.category}
                       </div>
-                      <h3 className="text-xl font-bold text-white mt-2 mb-2 font-serif">{project.title}</h3>
-                      <p className="text-slate-400 text-sm mb-4">{project.desc}</p>
-                      <div className="flex gap-2 text-xs text-slate-500 uppercase tracking-wider">
+                      <h3 className="text-base md:text-xl font-bold text-white mt-2 mb-1 md:mb-2 font-serif">{project.title}</h3>
+                      <p className="text-slate-400 text-xs md:text-sm mb-3 md:mb-4">{project.desc}</p>
+                      <div className="flex gap-2 text-[10px] md:text-xs text-slate-500 uppercase tracking-wider">
                         <span>#MontanaST</span>
                         <span>#Vakwerk</span>
                       </div>
@@ -112,17 +112,17 @@ export const Projects: React.FC = () => {
         </div>
 
         {/* Before/After Showcase */}
-        <div className="mt-20">
+        <div className="mt-12 md:mt-20">
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
-            className="text-3xl md:text-4xl font-serif text-white mb-12 text-center uppercase tracking-widest"
+            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-serif text-white mb-8 md:mb-12 text-center uppercase tracking-widest"
           >
             Voor & Na <span className="text-montana-gold">Transformaties</span>
           </motion.h2>
           
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8">
             {filteredProjects.slice(0, 2).map((project) => (
               <motion.div
                 key={`slider-${project.id}`}

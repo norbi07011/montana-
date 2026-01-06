@@ -24,9 +24,10 @@ export const BottomNavigation: React.FC = () => {
     <motion.nav
       initial={{ y: 100 }}
       animate={{ y: 0 }}
-      className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-montana-black/95 backdrop-blur-lg border-t border-montana-gold/20 safe-area-inset-bottom"
+      className="md:hidden fixed bottom-0 left-0 right-0 z-50 bg-montana-black/95 backdrop-blur-lg border-t border-montana-gold/20"
+      style={{ paddingBottom: 'env(safe-area-inset-bottom, 0px)' }}
     >
-      <div className="flex items-center justify-around px-2 py-2">
+      <div className="flex items-center justify-around px-1 py-1.5">
         {navItems.map((item) => {
           const isActive = location.pathname === item.path;
           const Icon = item.icon;
@@ -39,17 +40,17 @@ export const BottomNavigation: React.FC = () => {
               className="flex-1"
             >
               <motion.div
-                className={`flex flex-col items-center gap-1 py-2 px-1 rounded-xl transition-colors ${
+                className={`flex flex-col items-center gap-0.5 py-1.5 px-1 rounded-xl transition-colors ${
                   isActive ? 'text-montana-gold' : 'text-slate-400'
                 }`}
                 whileTap={{ scale: 0.9 }}
               >
                 <div className="relative">
-                  <Icon className="w-5 h-5" />
+                  <Icon className="w-4 h-4" />
                   {isActive && (
                     <motion.div
                       layoutId="activeTab"
-                      className="absolute -inset-2 bg-montana-gold/10 rounded-lg -z-10"
+                      className="absolute -inset-1.5 bg-montana-gold/10 rounded-lg -z-10"
                       transition={{
                         type: 'spring',
                         stiffness: 500,
@@ -58,7 +59,7 @@ export const BottomNavigation: React.FC = () => {
                     />
                   )}
                 </div>
-                <span className="text-[10px] font-medium tracking-wider">
+                <span className="text-[9px] font-medium tracking-wide">
                   {item.label}
                 </span>
               </motion.div>
